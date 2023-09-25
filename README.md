@@ -9,24 +9,18 @@
 ## 📮 미션 제출 방법
 
 - 미션 구현을 완료한 후 GitHub을 통해 제출해야 한다.
-  - GitHub을 활용한 제출
-    방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고해
-    제출한다.
-- GitHub에 미션을 제출한 후 [우아한테크코스 지원](https://apply.techcourse.co.kr) 사이트에 접속하여 프리코스 과제를 제출한다.
-  - 자세한 방법은 [제출 가이드](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse#제출-가이드)
-    참고
-  - **Pull Request만 보내고 지원 플랫폼에서 과제를 제출하지 않으면 최종 제출하지 않은 것으로 처리되니 주의한다.**
+    - GitHub을 활용한 제출 방법은 [우아한테크코스 프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고해 제출한다.
+- GitHub에 미션을 제출한 후 슬랙 `#미션-제출` 채널에 PR 주소를 올린다.
+    - **Pull Request만 보내고 Slack에 메시지를 보내지 않으면 리뷰를 하지 않으므로 주의한다.**
 
-## 🚨 과제 제출 전 체크 리스트 - 0점 방지
+## 🚨 과제 제출 전 체크 리스트
 
-- 기능 구현을 모두 정상적으로 했더라도 **요구 사항에 명시된 출력값 형식을 지키지 않을 경우 0점으로 처리**한다.
+- 기능 구현을 모두 정상적으로 했더라도 **요구 사항에 명시된 출력값 형식을 지켜야한다.**
 - 기능 구현을 완료한 뒤 아래 가이드에 따라 테스트를 실행했을 때 모든 테스트가 성공하는지 확인한다.
-- **테스트가 실패할 경우 0점으로 처리**되므로, 반드시 확인 후 제출한다.
 
 ### 테스트 실행 가이드
 
-- 터미널에서 `java -version`을 실행하여 Java 버전이 11인지 확인한다. 또는 Eclipse 또는 IntelliJ IDEA와 같은 IDE에서 Java 11로
-  실행되는지 확인한다.
+- 터미널에서 `java -version`을 실행하여 Java 버전이 11인지 확인한다. 또는 Eclipse 또는 IntelliJ IDEA와 같은 IDE에서 Java 11로 실행되는지 확인한다.
 - 터미널에서 Mac 또는 Linux 사용자의 경우 `./gradlew clean test` 명령을 실행하고,   
   Windows 사용자의 경우  `gradlew.bat clean test` 명령을 실행할 때 모든 테스트가 아래와 같이 통과하는지 확인한다.
 
@@ -201,10 +195,12 @@ String menu = Randoms.shuffle(menus).get(0);
 
 ## ✏️ 과제 진행 요구 사항
 
-- 미션은 [java-menu](https://github.com/woowacourse-precourse/java-menu) 저장소를 Fork & Clone해 시작한다.
-- **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
-- **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
-  - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
-- 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse)
-  문서를 참고한다.
-  - 소감은 간소하게 입력해도 된다. 예를 들어, "."만 입력해도 좋다.
+
+## ✏️ 과제 진행 요구사항
+
+- 미션은 [java-menu](https://github.com/grow-up-study/java-menu) 저장소를 Fork/Clone해 시작한다.
+- **기능을 구현하기 전에 java-menu/docs/README.md 파일에 구현할 기능 목록을 정리**해 추가한다.
+- **Git의 커밋 단위는 앞 단계에서 README.md 파일에 정리한 기능 목록 단위**로 추가한다.
+   - [AngularJS Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 참고해 commit log를 남긴다.
+
+- 과제 진행 방법은 [우아한테크코스 프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
