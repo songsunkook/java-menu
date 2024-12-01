@@ -41,18 +41,4 @@ class CoachTest {
             coach.addHateMenu(Menu.from("볶음면"));
         }).isInstanceOf(IllegalArgumentException.class);
     }
-    // TODO: DTO로 검증로직 이동
-/*
-    @Test
-    void 못먹는_메뉴가_실제로_존재하지_않는_메뉴인_경우_예외를_반환한다() {
-        assertThatThrownBy(() -> {
-            Coach coach = new Coach("포비");
-            coach.addHateMenu("감자");
-        }).isInstanceOf(IllegalArgumentException.class);
-
-        assertThatThrownBy(() -> {
-            Coach coach = new Coach("포비");
-            coach.addHateMenu("짜계치");
-        }).isInstanceOf(IllegalArgumentException.class);
-    }*/
 }
