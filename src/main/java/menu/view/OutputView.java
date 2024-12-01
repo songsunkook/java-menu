@@ -1,5 +1,7 @@
 package menu.view;
 
+import menu.domain.Coach;
+
 public class OutputView {
 
     public static void start() {
@@ -10,8 +12,8 @@ public class OutputView {
         System.out.println("코치의 이름을 입력해 주세요. (, 로 구분)");
     }
 
-    public static void inputHateMenus() {
-        System.out.println("토미(이)가 못 먹는 메뉴를 입력해 주세요.");
+    public static void inputHateMenus(Coach coach) {
+        System.out.println(coach.getName() + "(이)가 못 먹는 메뉴를 입력해 주세요.");
     }
 
     public static void result() {

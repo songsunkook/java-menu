@@ -1,5 +1,6 @@
 package menu.controller;
 
+import menu.service.MenuService;
 import menu.view.InputView;
 import menu.view.OutputView;
 

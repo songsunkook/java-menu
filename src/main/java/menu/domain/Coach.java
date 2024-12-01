@@ -39,4 +39,12 @@ public class Coach {
     public void eat(Menu menu) {
         ateMenus.add(menu);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Menu> getAteMenus() {
+        return new ArrayList<>(ateMenus);
+    }
 }

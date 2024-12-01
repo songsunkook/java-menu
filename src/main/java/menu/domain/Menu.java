@@ -77,7 +77,7 @@ public enum Menu {
             .orElseThrow(() -> new IllegalArgumentException("[ERROR]"));
     }
 
-    private String getName() {
+    public String getName() {
         return name().replace("_", " ");
     }
 
