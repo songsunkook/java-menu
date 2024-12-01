@@ -2,8 +2,8 @@ package menu.view;
 
 import static menu.view.OutputMessage.*;
 
-import menu.dto.CoachNameResponse;
-import menu.dto.ResultResponse;
+import menu.dto.response.CoachNameResponse;
+import menu.dto.response.ResultResponse;
 
 public class OutputView {
 

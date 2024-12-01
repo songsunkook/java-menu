@@ -1,7 +1,11 @@
-package menu.domain;
+package menu.domain.restaurant;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import menu.domain.restaurant.menu.Category;
+import menu.domain.restaurant.menu.Menu;
+import menu.domain.coach.Coach;
 
 public class Restaurant {
 

@@ -4,8 +4,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
-import menu.domain.Coach;
-import menu.domain.Menu;
+import menu.domain.coach.Coach;
+import menu.domain.restaurant.menu.Menu;
 
 class CoachTest {
 

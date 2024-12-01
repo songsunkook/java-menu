@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import menu.domain.Category;
-import menu.domain.Menu;
+import menu.domain.restaurant.menu.Category;
+import menu.domain.restaurant.menu.Menu;
 
 public class MenuRandomUtil {
 

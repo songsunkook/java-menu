@@ -1,4 +1,4 @@
-package menu.domain;
+package menu.domain.restaurant.menu;
 
 public enum Category {
     JAPANESE_FOOD("일식"),

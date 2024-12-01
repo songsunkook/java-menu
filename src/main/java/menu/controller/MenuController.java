@@ -2,7 +2,7 @@ package menu.controller;
 
 import java.util.function.Consumer;
 
-import menu.dto.CoachNameResponse;
+import menu.dto.response.CoachNameResponse;
 import menu.service.MenuService;
 import menu.view.InputView;
 import menu.view.OutputView;

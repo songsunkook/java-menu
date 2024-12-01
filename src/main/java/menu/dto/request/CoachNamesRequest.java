@@ -1,4 +1,4 @@
-package menu.dto;
+package menu.dto.request;
 
 import java.util.List;
 

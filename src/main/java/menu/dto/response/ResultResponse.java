@@ -1,14 +1,14 @@
-package menu.dto;
+package menu.dto.response;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import menu.domain.Category;
-import menu.domain.Coach;
-import menu.domain.Coaches;
-import menu.domain.Menu;
-import menu.domain.Restaurant;
+import menu.domain.restaurant.menu.Category;
+import menu.domain.coach.Coach;
+import menu.domain.coach.Coaches;
+import menu.domain.restaurant.menu.Menu;
+import menu.domain.restaurant.Restaurant;
 
 public class ResultResponse {
 

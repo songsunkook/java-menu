@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import menu.domain.Coaches;
+import menu.domain.coach.Coaches;
 
 class CoachesTest {
 

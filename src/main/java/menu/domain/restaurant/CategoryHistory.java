@@ -1,7 +1,9 @@
-package menu.domain;
+package menu.domain.restaurant;
 
 import java.util.EnumMap;
 import java.util.Map;
+
+import menu.domain.restaurant.menu.Category;
 
 public class CategoryHistory {
 

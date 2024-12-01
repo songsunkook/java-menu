@@ -1,14 +1,14 @@
 package menu.service;
 
-import menu.domain.Category;
-import menu.domain.Coach;
-import menu.domain.Coaches;
-import menu.domain.Menu;
-import menu.domain.Restaurant;
-import menu.dto.CoachNameResponse;
-import menu.dto.CoachNamesRequest;
-import menu.dto.MenuNamesRequest;
-import menu.dto.ResultResponse;
+import menu.domain.restaurant.menu.Category;
+import menu.domain.coach.Coach;
+import menu.domain.coach.Coaches;
+import menu.domain.restaurant.menu.Menu;
+import menu.domain.restaurant.Restaurant;
+import menu.dto.response.CoachNameResponse;
+import menu.dto.request.CoachNamesRequest;
+import menu.dto.request.MenuNamesRequest;
+import menu.dto.response.ResultResponse;
 
 public class MenuService {
 

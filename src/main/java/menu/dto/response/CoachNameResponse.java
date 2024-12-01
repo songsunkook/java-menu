@@ -1,6 +1,6 @@
-package menu.dto;
+package menu.dto.response;
 
-import menu.domain.Coach;
+import menu.domain.coach.Coach;
 
 public class CoachNameResponse {
     private final String coachName;

@@ -1,5 +1,8 @@
-package menu.domain;
+package menu.domain.restaurant;
 
+import menu.domain.restaurant.menu.Category;
+import menu.domain.restaurant.menu.Menu;
+import menu.domain.coach.Coach;
 import menu.util.MenuRandomUtil;
 
 public class Recommender {

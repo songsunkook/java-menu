@@ -1,4 +1,4 @@
-package menu.domain;
+package menu.domain.coach;
 
 import static menu.constant.MenuConstant.MAXIMUM_COACH_NAME_LENGTH;
 import static menu.constant.MenuConstant.MINIMUM_COACH_NAME_LENGTH;

@@ -1,4 +1,4 @@
-package menu.domain;
+package menu.domain.coach;
 
 import static menu.constant.MenuConstant.MAXIMUM_HATE_MENU_COUNT;
 import static menu.constant.MenuConstant.MINIMUM_HATE_MENU_COUNT;
@@ -6,6 +6,8 @@ import static menu.exception.ExceptionMessage.HATE_MENU_COUNT_OUT_OF_RANGE;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import menu.domain.restaurant.menu.Menu;
 
 public class HateMenus {
 

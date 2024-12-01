@@ -7,10 +7,10 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import menu.domain.Category;
-import menu.domain.Coach;
-import menu.domain.Menu;
-import menu.domain.Recommender;
+import menu.domain.restaurant.menu.Category;
+import menu.domain.coach.Coach;
+import menu.domain.restaurant.menu.Menu;
+import menu.domain.restaurant.Recommender;
 
 class RecommenderTest {
 

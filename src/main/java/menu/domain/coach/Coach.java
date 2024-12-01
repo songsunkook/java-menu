@@ -1,6 +1,8 @@
-package menu.domain;
+package menu.domain.coach;
 
 import java.util.List;
+
+import menu.domain.restaurant.menu.Menu;
 
 public class Coach {
 

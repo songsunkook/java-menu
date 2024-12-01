@@ -1,6 +1,6 @@
-package menu.domain;
+package menu.domain.restaurant.menu;
 
-import static menu.domain.Category.*;
+import static menu.domain.restaurant.menu.Category.*;
 import static menu.exception.ExceptionMessage.MENU_NAME_NOT_FOUND;
 
 import java.util.Arrays;
