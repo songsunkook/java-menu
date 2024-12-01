@@ -8,6 +8,7 @@ import menu.domain.Coaches;
 import menu.domain.Menu;
 import menu.domain.Recommender;
 import menu.domain.Restaurant;
+import menu.dto.CoachNameResponse;
 import menu.dto.ResultResponse;
 
 public class MenuService {
@@ -24,8 +25,8 @@ public class MenuService {
         return coaches.hasNext();
     }
 
-    public Coach nextCoach() {
-        return coaches.getNext();
+    public CoachNameResponse nextCoach() {
+        return CoachNameResponse.from(coaches.getNext());
     }
 
     public void setHateMenus(String coachName, List<String> menuNames) {
@@ -46,8 +47,8 @@ public class MenuService {
             Category category = recommender.selectCategory();
             restaurant.provideCategory(category);
             coaches.resetIterator();
-            while (hasNextCoach()) {
-                Coach coach = nextCoach();
+            while (coaches.hasNext()) {
+                Coach coach = coaches.getNext();
                 coach.eat(recommender.selectMenu(category, coach));
             }
         }

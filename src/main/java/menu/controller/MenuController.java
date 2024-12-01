@@ -2,7 +2,7 @@ package menu.controller;
 
 import java.util.function.Consumer;
 
-import menu.domain.Coach;
+import menu.dto.CoachNameResponse;
 import menu.service.MenuService;
 import menu.view.InputView;
 import menu.view.OutputView;
@@ -29,14 +29,14 @@ public class MenuController {
 
     private void setUpHateMenus() {
         while (menuService.hasNextCoach()) {
-            Coach coach = menuService.nextCoach();
-            process(this::setUpHateMenu, coach);
+            CoachNameResponse response = menuService.nextCoach();
+            process(this::setUpHateMenu, response);
         }
     }
 
-    private void setUpHateMenu(Coach coach) {
-        OutputView.inputHateMenus(coach);
-        menuService.setHateMenus(coach.getName(), InputView.menuNames());
+    private void setUpHateMenu(CoachNameResponse response) {
+        OutputView.inputHateMenus(response);
+        menuService.setHateMenus(response.getCoachName(), InputView.menuNames());
     }
 
     private void result() {
@@ -52,12 +52,12 @@ public class MenuController {
         }
     }
 
-    private void process(Consumer<Coach> action, Coach args) {
+    private void process(Consumer<CoachNameResponse> action, CoachNameResponse arg) {
         try {
-            action.accept(args);
+            action.accept(arg);
         } catch (IllegalArgumentException e) {
             OutputView.exception(e);
-            process(action, args);
+            process(action, arg);
         }
     }
 }
