@@ -1,5 +1,8 @@
 package menu.util;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import menu.domain.Category;
 import menu.domain.Menu;
@@ -11,6 +14,8 @@ public class MenuRandomUtil {
     }
 
     public Menu selectMenu(Category category) {
-        return Randoms.shuffle(Menu.getMenusByCategory(category)).get(0);
+        List<String> shuffledMenuNames = Randoms.shuffle(
+            Menu.getMenusByCategory(category).stream().map(Menu::getName).collect(Collectors.toList()));
+        return Menu.from(shuffledMenuNames.get(0));
     }
 }
