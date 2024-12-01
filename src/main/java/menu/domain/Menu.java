@@ -70,6 +70,17 @@ public enum Menu {
             .collect(Collectors.toList());
     }
 
+    public static Menu from(String name) {
+        return Arrays.stream(values())
+            .filter(menu -> menu.getName().equals(name))
+            .findAny()
+            .orElseThrow(() -> new IllegalArgumentException("[ERROR]"));
+    }
+
+    private String getName() {
+        return name().replace("_", " ");
+    }
+
     public Category getCategory() {
         return category;
     }
