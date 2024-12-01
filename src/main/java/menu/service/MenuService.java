@@ -1,7 +1,5 @@
 package menu.service;
 
-import java.util.List;
-
 import menu.domain.Category;
 import menu.domain.Coach;
 import menu.domain.Coaches;
@@ -9,6 +7,8 @@ import menu.domain.Menu;
 import menu.domain.Recommender;
 import menu.domain.Restaurant;
 import menu.dto.CoachNameResponse;
+import menu.dto.CoachNamesRequest;
+import menu.dto.MenuNamesRequest;
 import menu.dto.ResultResponse;
 
 public class MenuService {
@@ -17,8 +17,8 @@ public class MenuService {
     private Restaurant restaurant = new Restaurant();
     private final Recommender recommender = new Recommender();
 
-    public void setCoaches(List<String> names) {
-        coaches = new Coaches(names);
+    public void setCoaches(CoachNamesRequest request) {
+        coaches = new Coaches(request.getCoachNames());
     }
 
     public boolean hasNextCoach() {
@@ -29,10 +29,10 @@ public class MenuService {
         return CoachNameResponse.from(coaches.getNext());
     }
 
-    public void setHateMenus(String coachName, List<String> menuNames) {
+    public void setHateMenus(String coachName, MenuNamesRequest request) {
         Coach coach = coaches.from(coachName);
         try {
-            menuNames.stream()
+            request.getMenuNames().stream()
                 .filter(menuName -> !menuName.isEmpty())
                 .map(Menu::from)
                 .forEach(coach::addHateMenu);

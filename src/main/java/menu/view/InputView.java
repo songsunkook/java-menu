@@ -1,16 +1,16 @@
 package menu.view;
 
-import java.util.List;
-
 import camp.nextstep.edu.missionutils.Console;
+import menu.dto.CoachNamesRequest;
+import menu.dto.MenuNamesRequest;
 
 public class InputView {
 
-    public static List<String> coachNames() {
-        return List.of(Console.readLine().split(","));
+    public static CoachNamesRequest coachNames() {
+        return CoachNamesRequest.from(Console.readLine());
     }
 
-    public static List<String> menuNames() {
-        return List.of(Console.readLine().split(","));
+    public static MenuNamesRequest menuNames() {
+        return MenuNamesRequest.from(Console.readLine());
     }
 }
