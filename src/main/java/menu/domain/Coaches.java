@@ -27,6 +27,13 @@ public class Coaches {
         }
     }
 
+    public Coach from(String name) {
+        return coaches.stream()
+            .filter(coach -> Objects.equals(coach.getName(), name))
+            .findAny()
+            .orElseThrow(() -> new IllegalArgumentException(COACH_NAME_NOT_FOUND.getMessage()));
+    }
+
     public boolean hasNext() {
         return coaches.size() > cursor;
     }
@@ -35,13 +42,6 @@ public class Coaches {
         Coach next = coaches.get(cursor);
         cursor++;
         return next;
-    }
-
-    public Coach from(String name) {
-        return coaches.stream()
-            .filter(coach -> Objects.equals(coach.getName(), name))
-            .findAny()
-            .orElseThrow(() -> new IllegalArgumentException(COACH_NAME_NOT_FOUND.getMessage()));
     }
 
     public void resetIterator() {
