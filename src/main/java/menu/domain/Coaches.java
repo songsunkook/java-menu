@@ -1,5 +1,7 @@
 package menu.domain;
 
+import static menu.constant.MenuConstant.MAXIMUM_COACH_COUNT;
+import static menu.constant.MenuConstant.MINIMUM_COACH_COUNT;
 import static menu.exception.ExceptionMessage.COACH_COUNT_OUT_OF_RANGE;
 import static menu.exception.ExceptionMessage.COACH_NAME_NOT_FOUND;
 
@@ -20,7 +22,7 @@ public class Coaches {
     }
 
     private void validateCoachCount(int size) {
-        if (size < 2 || size > 5) {
+        if (size < MINIMUM_COACH_COUNT || size > MAXIMUM_COACH_COUNT) {
             throw new IllegalArgumentException(COACH_COUNT_OUT_OF_RANGE.getMessage());
         }
     }

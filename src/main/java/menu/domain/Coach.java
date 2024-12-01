@@ -1,5 +1,6 @@
 package menu.domain;
 
+import static menu.constant.MenuConstant.*;
 import static menu.exception.ExceptionMessage.COACH_NAME_OUT_OF_RANGE;
 import static menu.exception.ExceptionMessage.HATE_MENU_COUNT_OUT_OF_RANGE;
 
@@ -18,7 +19,7 @@ public class Coach {
     }
 
     private void validateName(String name) {
-        if (name.length() < 2 || name.length() > 4) {
+        if (name.length() < MINIMUM_COACH_NAME_LENGTH || name.length() > MAXIMUM_COACH_NAME_LENGTH) {
             throw new IllegalArgumentException(COACH_NAME_OUT_OF_RANGE.getMessage());
         }
     }
@@ -29,7 +30,7 @@ public class Coach {
     }
 
     private void validateHateMenuCount() {
-        if (hateMenus.size() > 2) {
+        if (hateMenus.size() < MINIMUM_HATE_MENU_COUNT || hateMenus.size() > MAXIMUM_HATE_MENU_COUNT) {
             throw new IllegalArgumentException(HATE_MENU_COUNT_OUT_OF_RANGE.getMessage());
         }
     }
