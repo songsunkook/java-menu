@@ -23,7 +23,7 @@ public class Coaches {
     }
 
     public boolean hasNext() {
-        return coaches.size() - 1 < cursor;
+        return coaches.size() > cursor;
     }
 
     public Coach getNext() {

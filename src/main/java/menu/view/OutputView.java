@@ -1,6 +1,7 @@
 package menu.view;
 
 import menu.domain.Coach;
+import menu.dto.ResultResponse;
 
 public class OutputView {
 
@@ -9,16 +10,25 @@ public class OutputView {
     }
 
     public static void inputCoachNames() {
-        System.out.println("코치의 이름을 입력해 주세요. (, 로 구분)");
+        System.out.println("\n코치의 이름을 입력해 주세요. (, 로 구분)");
     }
 
     public static void inputHateMenus(Coach coach) {
-        System.out.println(coach.getName() + "(이)가 못 먹는 메뉴를 입력해 주세요.");
+        System.out.println("\n" + coach.getName() + "(이)가 못 먹는 메뉴를 입력해 주세요.");
     }
 
-    public static void result() {
-        System.out.println("메뉴 추천 결과입니다.");
+    public static void result(ResultResponse response) {
+        System.out.println("\n메뉴 추천 결과입니다.");
         System.out.println("[ 구분 | 월요일 | 화요일 | 수요일 | 목요일 | 금요일 ]");
-        // TODO: 카테고리, 메뉴 출력
+
+        String categories = String.join(" | ", response.getCategoryNames());
+        System.out.println(String.format("[ 카테고리 | %s ]", categories));
+
+        response.getCoachMenus().forEach(innerCoachMenu -> {
+            String menus = String.join(" | ", innerCoachMenu.getMenus());
+            System.out.println(String.format("[ %s | %s ]", innerCoachMenu.getCoachName(), menus));
+        });
+
+        System.out.println("\n추천을 완료했습니다.");
     }
 }

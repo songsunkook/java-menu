@@ -1,5 +1,6 @@
 package menu.controller;
 
+import menu.domain.Coach;
 import menu.service.MenuService;
 import menu.view.InputView;
 import menu.view.OutputView;
@@ -15,9 +16,9 @@ public class MenuController {
         menuService.setCoaches(InputView.coachNames());
 
         while (menuService.hasNextCoach()) {
-            String coachName = menuService.nextCoach();
-            OutputView.inputHateMenus(coachName);
-            menuService.setHateMenus(coachName, InputView.menuNames());
+            Coach coach = menuService.nextCoach();
+            OutputView.inputHateMenus(coach);
+            menuService.setHateMenus(coach.getName(), InputView.menuNames());
         }
 
         OutputView.result(menuService.result());
