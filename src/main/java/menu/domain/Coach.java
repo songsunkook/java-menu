@@ -1,38 +1,19 @@
 package menu.domain;
 
-import static menu.constant.MenuConstant.*;
-import static menu.exception.ExceptionMessage.COACH_NAME_OUT_OF_RANGE;
-import static menu.exception.ExceptionMessage.HATE_MENU_COUNT_OUT_OF_RANGE;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Coach {
 
-    private final String name;
-    private final List<Menu> hateMenus = new ArrayList<>();
-    private final List<Menu> ateMenus = new ArrayList<>();
+    private final Name name;
+    private final AteMenus ateMenus = new AteMenus();
+    private final HateMenus hateMenus = new HateMenus();
 
     public Coach(String name) {
-        validateName(name);
-        this.name = name;
-    }
-
-    private void validateName(String name) {
-        if (name.length() < MINIMUM_COACH_NAME_LENGTH || name.length() > MAXIMUM_COACH_NAME_LENGTH) {
-            throw new IllegalArgumentException(COACH_NAME_OUT_OF_RANGE.getMessage());
-        }
+        this.name = new Name(name);
     }
 
     public void addHateMenu(Menu menu) {
         hateMenus.add(menu);
-        validateHateMenuCount();
-    }
-
-    private void validateHateMenuCount() {
-        if (hateMenus.size() < MINIMUM_HATE_MENU_COUNT || hateMenus.size() > MAXIMUM_HATE_MENU_COUNT) {
-            throw new IllegalArgumentException(HATE_MENU_COUNT_OUT_OF_RANGE.getMessage());
-        }
     }
 
     public boolean isAte(Menu menu) {
@@ -44,14 +25,14 @@ public class Coach {
     }
 
     public String getName() {
-        return name;
+        return name.get();
     }
 
     public List<Menu> getAteMenus() {
-        return new ArrayList<>(ateMenus);
+        return ateMenus.getMenus();
     }
 
     public void resetHateMenu() {
-        hateMenus.clear();
+        hateMenus.reset();
     }
 }
