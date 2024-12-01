@@ -9,34 +9,51 @@ public class OutputView {
 
     private static final String DELIMITER = " | ";
 
-    public static void start() {
-        System.out.println(START.getMessage());
+    private StringBuilder buffer = new StringBuilder();
+
+    public void start() {
+        printDirect(START.getMessage());
     }
 
-    public static void inputCoachNames() {
-        System.out.println(INPUT_COACH_NAMES.getMessage());
+    public void inputCoachNames() {
+        printDirect(INPUT_COACH_NAMES.getMessage());
     }
 
-    public static void inputHateMenus(CoachNameResponse response) {
-        System.out.println(INPUT_HATE_MENUS.getMessage(response.getCoachName()));
+    public void inputHateMenus(CoachNameResponse response) {
+        printDirect(INPUT_HATE_MENUS.getMessage(response.getCoachName()));
     }
 
-    public static void result(ResultResponse response) {
-        System.out.println(RESULT.getMessage());
-        System.out.println(RESULT_HEADER.getMessage());
+    public void result(ResultResponse response) {
+        print(RESULT.getMessage());
+        print(RESULT_HEADER.getMessage());
 
         String categories = String.join(DELIMITER, response.getCategoryNames());
-        System.out.println(RESULT_CATEGORIES.getMessage(categories));
+        print(RESULT_CATEGORIES.getMessage(categories));
 
         response.getCoachMenus().forEach(innerCoachMenu -> {
             String menus = String.join(DELIMITER, innerCoachMenu.getMenus());
-            System.out.println(RESULT_COACH_MENUS.getMessage(innerCoachMenu.getCoachName(), menus));
+            print(RESULT_COACH_MENUS.getMessage(innerCoachMenu.getCoachName(), menus));
         });
 
-        System.out.println(FINISH.getMessage());
+        print(FINISH.getMessage());
+        flush();
     }
 
-    public static void exception(Exception e) {
-        System.out.println(e.getMessage());
+    public void exception(Exception e) {
+        print(e.getMessage());
+    }
+
+    private void flush() {
+        System.out.print(buffer);
+        buffer = new StringBuilder();
+    }
+
+    private void print(String content) {
+        buffer.append(content);
+    }
+
+    private void printDirect(String content) {
+        print(content);
+        flush();
     }
 }

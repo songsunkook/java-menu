@@ -9,6 +9,7 @@ import menu.view.OutputView;
 
 public class MenuController {
 
+    private final OutputView outputView = new OutputView();
     private final MenuService menuService = new MenuService();
 
     public void run() {
@@ -19,11 +20,11 @@ public class MenuController {
     }
 
     private void start() {
-        OutputView.start();
+        outputView.start();
     }
 
     private void setUpCoaches() {
-        OutputView.inputCoachNames();
+        outputView.inputCoachNames();
         menuService.setUp(InputView.coachNames());
     }
 
@@ -35,19 +36,19 @@ public class MenuController {
     }
 
     private void setUpHateMenu(CoachNameResponse response) {
-        OutputView.inputHateMenus(response);
+        outputView.inputHateMenus(response);
         menuService.setHateMenus(response.getCoachName(), InputView.menuNames());
     }
 
     private void result() {
-        OutputView.result(menuService.result());
+        outputView.result(menuService.result());
     }
 
     private void process(Runnable action) {
         try {
             action.run();
         } catch (IllegalArgumentException e) {
-            OutputView.exception(e);
+            outputView.exception(e);
             process(action);
         }
     }
@@ -56,7 +57,7 @@ public class MenuController {
         try {
             action.accept(arg);
         } catch (IllegalArgumentException e) {
-            OutputView.exception(e);
+            outputView.exception(e);
             process(action, arg);
         }
     }

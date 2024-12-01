@@ -11,6 +11,7 @@ public class CategoryHistory {
 
     public static final int DEFAULT_VALUE = 0;
     public static final int INCREASE_UNIT = 1;
+
     private final Map<Category, Integer> categoryHistory = new EnumMap<>(Category.class);
 
     public void add(Category category) {

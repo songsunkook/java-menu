@@ -13,4 +13,7 @@ public class InputView {
     public static MenuNamesRequest menuNames() {
         return MenuNamesRequest.from(Console.readLine());
     }
+
+    private InputView() {
+    }
 }
