@@ -1,35 +1,37 @@
 package menu.view;
 
+import static menu.view.OutputMessage.*;
+
 import menu.dto.CoachNameResponse;
 import menu.dto.ResultResponse;
 
 public class OutputView {
 
     public static void start() {
-        System.out.println("점심 메뉴 추천을 시작합니다.");
+        System.out.println(START.getMessage());
     }
 
     public static void inputCoachNames() {
-        System.out.println("\n코치의 이름을 입력해 주세요. (, 로 구분)");
+        System.out.println(INPUT_COACH_NAMES.getMessage());
     }
 
     public static void inputHateMenus(CoachNameResponse response) {
-        System.out.println("\n" + response.getCoachName() + "(이)가 못 먹는 메뉴를 입력해 주세요.");
+        System.out.println(INPUT_HATE_MENUS.getMessage(response.getCoachName()));
     }
 
     public static void result(ResultResponse response) {
-        System.out.println("\n메뉴 추천 결과입니다.");
-        System.out.println("[ 구분 | 월요일 | 화요일 | 수요일 | 목요일 | 금요일 ]");
+        System.out.println(RESULT.getMessage());
+        System.out.println(RESULT_HEADER.getMessage());
 
         String categories = String.join(" | ", response.getCategoryNames());
-        System.out.println(String.format("[ 카테고리 | %s ]", categories));
+        System.out.println(RESULT_CATEGORIES.getMessage(categories));
 
         response.getCoachMenus().forEach(innerCoachMenu -> {
             String menus = String.join(" | ", innerCoachMenu.getMenus());
-            System.out.println(String.format("[ %s | %s ]", innerCoachMenu.getCoachName(), menus));
+            System.out.println(RESULT_COACH_MENUS.getMessage(innerCoachMenu.getCoachName(), menus));
         });
 
-        System.out.println("\n추천을 완료했습니다.");
+        System.out.println(FINISH.getMessage());
     }
 
     public static void exception(Exception e) {
