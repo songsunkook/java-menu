@@ -31,4 +31,8 @@ public class OutputView {
 
         System.out.println("\n추천을 완료했습니다.");
     }
+
+    public static void exception(Exception e) {
+        System.out.println(e.getMessage());
+    }
 }
