@@ -24,7 +24,7 @@ public class MenuController {
 
     private void setUpCoaches() {
         OutputView.inputCoachNames();
-        menuService.setCoaches(InputView.coachNames());
+        menuService.setUp(InputView.coachNames());
     }
 
     private void setUpHateMenus() {

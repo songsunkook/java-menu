@@ -4,7 +4,6 @@ import menu.domain.Category;
 import menu.domain.Coach;
 import menu.domain.Coaches;
 import menu.domain.Menu;
-import menu.domain.Recommender;
 import menu.domain.Restaurant;
 import menu.dto.CoachNameResponse;
 import menu.dto.CoachNamesRequest;
@@ -14,11 +13,11 @@ import menu.dto.ResultResponse;
 public class MenuService {
 
     private Coaches coaches;
-    private Restaurant restaurant = new Restaurant();
-    private final Recommender recommender = new Recommender();
+    private Restaurant restaurant;
 
-    public void setCoaches(CoachNamesRequest request) {
+    public void setUp(CoachNamesRequest request) {
         coaches = new Coaches(request.getCoachNames());
+        restaurant = new Restaurant();
     }
 
     public boolean hasNextCoach() {
@@ -44,12 +43,11 @@ public class MenuService {
 
     public ResultResponse result() {
         for (int i = 0; i < 5; i++) {
-            Category category = recommender.selectCategory();
-            restaurant.provideCategory(category);
+            Category category = restaurant.nextCategory();
             coaches.resetIterator();
             while (coaches.hasNext()) {
                 Coach coach = coaches.getNext();
-                coach.eat(recommender.selectMenu(category, coach));
+                coach.eat(restaurant.nextMenuForCoach(category, coach));
             }
         }
         return ResultResponse.of(coaches, restaurant);
