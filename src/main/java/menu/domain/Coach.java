@@ -47,4 +47,8 @@ public class Coach {
     public List<Menu> getAteMenus() {
         return new ArrayList<>(ateMenus);
     }
+
+    public void resetHateMenu() {
+        hateMenus.clear();
+    }
 }

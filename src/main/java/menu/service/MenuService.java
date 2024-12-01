@@ -30,9 +30,14 @@ public class MenuService {
 
     public void setHateMenus(String coachName, List<String> menuNames) {
         Coach coach = coaches.from(coachName);
-        menuNames.stream()
-            .map(Menu::from)
-            .forEach(coach::addHateMenu);
+        try {
+            menuNames.stream()
+                .map(Menu::from)
+                .forEach(coach::addHateMenu);
+        } catch (IllegalArgumentException e) {
+            coach.resetHateMenu();
+            throw e;
+        }
     }
 
     public ResultResponse result() {
