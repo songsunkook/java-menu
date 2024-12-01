@@ -9,4 +9,8 @@ public class Recommander {
     public Category selectCategory() {
         return menuRandomUtil.selectCategory();
     }
+
+    public Menu selectMenu(Category category) {
+        return menuRandomUtil.selectMenu(category);
+    }
 }
