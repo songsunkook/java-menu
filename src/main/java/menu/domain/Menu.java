@@ -1,6 +1,7 @@
 package menu.domain;
 
 import static menu.domain.Category.*;
+import static menu.exception.ExceptionMessage.MENU_NAME_NOT_FOUND;
 
 import java.util.Arrays;
 import java.util.List;
@@ -74,7 +75,7 @@ public enum Menu {
         return Arrays.stream(values())
             .filter(menu -> menu.getName().equals(name))
             .findAny()
-            .orElseThrow(() -> new IllegalArgumentException("[ERROR]"));
+            .orElseThrow(() -> new IllegalArgumentException(MENU_NAME_NOT_FOUND.getMessage()));
     }
 
     public String getName() {

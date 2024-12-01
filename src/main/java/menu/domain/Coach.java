@@ -1,5 +1,8 @@
 package menu.domain;
 
+import static menu.exception.ExceptionMessage.COACH_NAME_OUT_OF_RANGE;
+import static menu.exception.ExceptionMessage.HATE_MENU_COUNT_OUT_OF_RANGE;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,19 +19,18 @@ public class Coach {
 
     private void validateName(String name) {
         if (name.length() < 2 || name.length() > 4) {
-            throw new IllegalArgumentException("[ERROR] 이름은 2글자 이상 4글자 이하여아 합니다.");
+            throw new IllegalArgumentException(COACH_NAME_OUT_OF_RANGE.getMessage());
         }
     }
 
     public void addHateMenu(Menu menu) {
         hateMenus.add(menu);
         validateHateMenuCount();
-        // TODO: 일괄롤백되는지 확인
     }
 
     private void validateHateMenuCount() {
         if (hateMenus.size() > 2) {
-            throw new IllegalArgumentException("[ERROR] 먹지 못하는 메뉴는 최소 0개, 최대 2개여야 합니다.");
+            throw new IllegalArgumentException(HATE_MENU_COUNT_OUT_OF_RANGE.getMessage());
         }
     }
 

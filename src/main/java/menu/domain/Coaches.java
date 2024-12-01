@@ -1,5 +1,8 @@
 package menu.domain;
 
+import static menu.exception.ExceptionMessage.COACH_COUNT_OUT_OF_RANGE;
+import static menu.exception.ExceptionMessage.COACH_NAME_NOT_FOUND;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -18,7 +21,7 @@ public class Coaches {
 
     private void validateCoachCount(int size) {
         if (size < 2 || size > 5) {
-            throw new IllegalArgumentException("[ERROR] 코치는 최소 2명, 최대 5명이어야 합니다.");
+            throw new IllegalArgumentException(COACH_COUNT_OUT_OF_RANGE.getMessage());
         }
     }
 
@@ -36,7 +39,7 @@ public class Coaches {
         return coaches.stream()
             .filter(coach -> Objects.equals(coach.getName(), name))
             .findAny()
-            .orElseThrow(() -> new IllegalArgumentException("[ERROR] "));
+            .orElseThrow(() -> new IllegalArgumentException(COACH_NAME_NOT_FOUND.getMessage()));
     }
 
     public void resetIterator() {
