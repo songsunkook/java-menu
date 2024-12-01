@@ -32,6 +32,7 @@ public class MenuService {
         Coach coach = coaches.from(coachName);
         try {
             menuNames.stream()
+                .filter(menuName -> !menuName.isEmpty())
                 .map(Menu::from)
                 .forEach(coach::addHateMenu);
         } catch (IllegalArgumentException e) {
