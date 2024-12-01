@@ -59,6 +59,8 @@ public enum Menu {
     파니니(WESTERN_FOOD),
     ;
 
+    public static final String CODE_SPACE = "_";
+    public static final String OUTPUT_SPACE = " ";
     private final Category category;
 
     Menu(Category category) {
@@ -79,7 +81,7 @@ public enum Menu {
     }
 
     public String getName() {
-        return name().replace("_", " ");
+        return name().replace(CODE_SPACE, OUTPUT_SPACE);
     }
 
     public Category getCategory() {

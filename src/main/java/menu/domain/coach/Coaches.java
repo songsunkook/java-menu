@@ -11,7 +11,9 @@ import java.util.stream.Collectors;
 
 public class Coaches {
 
-    private int cursor = 0;
+    public static final int DEFAULT_CURSOR = 0;
+
+    private int cursor = DEFAULT_CURSOR;
     private final List<Coach> coaches;
 
     public Coaches(List<String> coachNames) {
@@ -45,6 +47,6 @@ public class Coaches {
     }
 
     public void resetIterator() {
-        cursor = 0;
+        cursor = DEFAULT_CURSOR;
     }
 }

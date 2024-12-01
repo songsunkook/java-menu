@@ -1,13 +1,16 @@
 package menu.service;
 
-import menu.domain.restaurant.menu.Category;
+import static menu.constant.MenuConstant.OPERATING_DAYS;
+
+import java.util.stream.IntStream;
+
 import menu.domain.coach.Coach;
 import menu.domain.coach.Coaches;
-import menu.domain.restaurant.menu.Menu;
 import menu.domain.restaurant.Restaurant;
-import menu.dto.response.CoachNameResponse;
+import menu.domain.restaurant.menu.Menu;
 import menu.dto.request.CoachNamesRequest;
 import menu.dto.request.MenuNamesRequest;
+import menu.dto.response.CoachNameResponse;
 import menu.dto.response.ResultResponse;
 
 public class MenuService {
@@ -42,14 +45,16 @@ public class MenuService {
     }
 
     public ResultResponse result() {
-        for (int i = 0; i < 5; i++) {
-            Category category = restaurant.nextCategory();
-            coaches.resetIterator();
-            while (coaches.hasNext()) {
-                Coach coach = coaches.getNext();
-                coach.eat(restaurant.nextMenuForCoach(category, coach));
-            }
-        }
+        IntStream.range(0, OPERATING_DAYS)
+            .boxed()
+            .map(i -> restaurant.nextCategory())
+            .forEach(category -> {
+                coaches.resetIterator();
+                while (coaches.hasNext()) {
+                    Coach coach = coaches.getNext();
+                    coach.eat(restaurant.nextMenuForCoach(category, coach));
+                }
+            });
         return ResultResponse.of(coaches, restaurant);
     }
 }

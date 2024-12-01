@@ -7,6 +7,8 @@ import menu.dto.response.ResultResponse;
 
 public class OutputView {
 
+    private static final String DELIMITER = " | ";
+
     public static void start() {
         System.out.println(START.getMessage());
     }
@@ -23,11 +25,11 @@ public class OutputView {
         System.out.println(RESULT.getMessage());
         System.out.println(RESULT_HEADER.getMessage());
 
-        String categories = String.join(" | ", response.getCategoryNames());
+        String categories = String.join(DELIMITER, response.getCategoryNames());
         System.out.println(RESULT_CATEGORIES.getMessage(categories));
 
         response.getCoachMenus().forEach(innerCoachMenu -> {
-            String menus = String.join(" | ", innerCoachMenu.getMenus());
+            String menus = String.join(DELIMITER, innerCoachMenu.getMenus());
             System.out.println(RESULT_COACH_MENUS.getMessage(innerCoachMenu.getCoachName(), menus));
         });
 

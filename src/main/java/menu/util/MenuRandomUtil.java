@@ -9,8 +9,12 @@ import menu.domain.restaurant.menu.Menu;
 
 public class MenuRandomUtil {
 
+    private static final int MINIMUM_CATEGORY_NUMBER = 1;
+    private static final int MAXIMUM_CATEGORY_NUMBER = Category.values().length;
+
     public Category selectCategory() {
-        return Category.values()[Randoms.pickNumberInRange(1, 5) - 1];
+        return Category.values()[Randoms.pickNumberInRange(MINIMUM_CATEGORY_NUMBER, MAXIMUM_CATEGORY_NUMBER)
+            - MINIMUM_CATEGORY_NUMBER];
     }
 
     public Menu selectMenu(Category category) {
