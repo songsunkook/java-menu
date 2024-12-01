@@ -24,7 +24,11 @@ public class Recommender {
         return recommendedCategories.getOrDefault(result, 0) + 1 > 2;
     }
 
-    public Menu selectMenu(Category category) {
-        return menuRandomUtil.selectMenu(category);
+    public Menu selectMenu(Category category, Coach coach) {
+        Menu result;
+        do {
+            result = menuRandomUtil.selectMenu(category);
+        } while (coach.isAte(result));
+        return result;
     }
 }

@@ -7,6 +7,7 @@ public class Coach {
 
     private final String name;
     private final List<Menu> hateMenus = new ArrayList<>();
+    private final List<Menu> ateMenus = new ArrayList<>();
 
     public Coach(String name) {
         validateName(name);
@@ -29,5 +30,13 @@ public class Coach {
         if (hateMenus.size() > 2) {
             throw new IllegalArgumentException("[ERROR] 먹지 못하는 메뉴는 최소 0개, 최대 2개여야 합니다.");
         }
+    }
+
+    public boolean isAte(Menu menu) {
+        return ateMenus.contains(menu);
+    }
+
+    public void eat(Menu menu) {
+        ateMenus.add(menu);
     }
 }

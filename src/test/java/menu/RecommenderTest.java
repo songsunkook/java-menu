@@ -8,6 +8,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import menu.domain.Category;
+import menu.domain.Coach;
 import menu.domain.Menu;
 import menu.domain.Recommender;
 
@@ -34,6 +35,19 @@ class RecommenderTest {
     void 각_코치가_먹을_메뉴를_추천한다() {
         Recommender recommender = new Recommender();
         Category category = recommender.selectCategory();
-        Menu menu = recommender.selectMenu(category);
+        Coach coach = new Coach("포비");
+        recommender.selectMenu(category, coach);
+    }
+
+    @Test
+    void 각_코치에게_한_주에_중복되지_않는_메뉴를_추천해야_한다() {
+        Recommender recommender = new Recommender();
+        Category category = Category.KOREAN_FOOD;
+        Coach coach = new Coach("포비");
+        Menu 비빔밥 = Menu.from("비빔밥");
+        coach.eat(비빔밥);
+        for (int i = 0; i < 100; i++) {
+            assertThat(recommender.selectMenu(category, coach)).isNotEqualTo(비빔밥);
+        }
     }
 }
